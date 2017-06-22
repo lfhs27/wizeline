@@ -346,35 +346,26 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="row">
 					<div class="col-xs-12 col-md-8 col-md-offset-2 widget-bg-color-red">
 						<h1>Ingresa tu URL</h1>
-						<input type="text" id="url-full" class="form-control" />
+						<form action="{{ action('MainController@encode') }}" method="POST">
+							{{ csrf_field() }}
+							<input type="text" id="url-full" name="url" class="form-control" />
+							<input type="submit" class="btn btn-success" value="Minimize!" />
+						</form>
 					</div>
 				</div>
+				
+				@if(session('hash'))
+                <div class="row margin-top-30">
+					<div class="col-xs-12 col-md-8 col-md-offset-2 widget-bg-color-blue">
+						<h1>Tu Liga es</h1>
+						<strong>{{ action('MainController@decode', session('hash')) }}</strong>
+					</div>
+				</div>
+				@endif
             </div>
             <!-- END CONTENT -->
         </div>
         <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            <div class="page-footer-inner container-fluid container-lf-space">
-                <p class="page-footer-copyright"> 2016 &copy; Metronic Theme By
-                    <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
-                    <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
-                </p>
-            </div>
-            <div class="go2top">
-                <i class="icon-arrow-up"></i>
-            </div>
-        </div>
-        <!-- END FOOTER -->
-        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-        <button type="button" class="quick-sidebar-toggler" data-toggle="collapse">
-            <span class="sr-only">Toggle Quick Sidebar</span>
-            <i class="icon-logout"></i>
-            <div class="quick-sidebar-notification">
-                <span class="badge badge-danger">7</span>
-            </div>
-        </button>
-        <!-- END QUICK SIDEBAR TOGGLER -->
         <!--[if lt IE 9]>
 <script src="../assets/global/plugins/respond.min.js"></script>
 <script src="../assets/global/plugins/excanvas.min.js"></script> 

@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'MainController@index');
+Route::post('/encode', 'MainController@encode');
+Route::get('/{hash}', 'MainController@decode');
