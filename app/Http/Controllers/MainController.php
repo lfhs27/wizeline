@@ -17,7 +17,7 @@ class MainController extends Controller
 		$link = Link::firstOrCreate(['url' => $request->url]);
 		
 		$id = $link->id;
-		$hash = "";
+		$hash = ""; 
 		
 		while($id > 0){
 			$hash = $this->voca[$id%62].$hash;
